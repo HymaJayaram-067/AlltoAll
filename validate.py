@@ -17,7 +17,7 @@ import sys
 def validate_python_syntax(filepath):
     """Check if Python file has valid syntax."""
     try:
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             code = f.read()
         ast.parse(code)
         return True, "OK"
@@ -60,7 +60,7 @@ def validate_documentation():
             issues.append(f"{filepath} not found")
             continue
         
-        with open(filepath, 'r') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
         
         for term in required_terms:
