@@ -6,15 +6,16 @@ This example demonstrates the basic usage of TopKA2A for gradient aggregation
 in distributed training.
 """
 
+import sys
+import os
+
+# Add parent directory to path BEFORE importing topka2a modules
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import torch
 import torch.distributed as dist
 import torch.multiprocessing as mp
 from topka2a_paper_exact import TopKA2A
-import sys
-import os
-
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def setup(rank, world_size):
